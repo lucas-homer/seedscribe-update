@@ -11,12 +11,12 @@ const Profile = () => {
   React.useEffect(() => {
     if (!user) return
     async function fetchTodos() {
-      // setLoading(true)
+      setLoading(true)
       const response = await fetch("/.netlify/functions/todos")
       console.log(response)
       const data = await response.json()
       // setTodos(data)
-      // setLoading(false)
+      setLoading(false)
       console.log(data)
     }
     fetchTodos()
@@ -33,7 +33,7 @@ const Profile = () => {
       title: todoInput,
       completed: false,
     }
-    // setLoading(true)
+    setLoading(true)
     const response = await fetch("/.netlify/functions/todo-create", {
       body: JSON.stringify({
         data: todoInfo,
@@ -43,9 +43,11 @@ const Profile = () => {
     })
     const savedTodo = await response.json()
     setTodoInput("")
-    // setLoading(false)
+    setLoading(false)
     console.log("created Todo", savedTodo)
   }
+
+  console.log(loading)
 
   // if ()
   return (
@@ -60,6 +62,7 @@ const Profile = () => {
         <input type="text" onChange={handleChange} value={todoInput} />{" "}
         <button onClick={handleCreate}>Add</button>
       </form>
+      <ul>{todos && todos.length > 0 && todos.map(item => <li>{item}</li>)}</ul>
     </>
   )
 }
