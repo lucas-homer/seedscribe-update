@@ -7,6 +7,8 @@
     "@reach/dialog": "^0.2.9",
     "@reach/tabs": "^0.1.6",
     "@reach/visually-hidden": "^0.1.4",
+    "chalk": "^3.0.0",
+    "faunadb": "^2.10.2",
     "gatsby": "^2.15.11",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-create-client-paths": "^2.1.6",
@@ -34,7 +36,8 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "bootstrap": "netlify dev:exec node ./scripts/bootstrap-fauna-database.js"
   },
   "devDependencies": {
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
